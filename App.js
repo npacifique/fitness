@@ -1,4 +1,6 @@
 import * as React from "react";
+import { FontAwesome5 } from '@expo/vector-icons'; 
+import AddEntry from './components/AddEntry'
 import { View, Text } from "react-native";
 
 export default function App() {
@@ -11,6 +13,7 @@ export default function App() {
       }}
     >
       <Text>Universal React with Expo</Text>
+      <AddEntry />
     </View>
   );
 }
