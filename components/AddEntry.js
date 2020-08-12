@@ -1,9 +1,11 @@
 import React, {Component} from 'react'
 import {Text, View} from 'react-native'
-import {getMetricMetaInfo} from '../utils/helpers'
+import {getMetricMetaInfo, timeToString} from '../utils/helpers'
 import AppSlider from './AppSlider'
 import Stepers from './Stepers'
 import DateHeader from './DateHeader'
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import TextButton from './TextButton'
 
 export default class AddEntry extends Component{
     state ={
@@ -48,8 +50,27 @@ export default class AddEntry extends Component{
         })
     }
 
+
+    reset =()=>{
+        const key = timeToString()
+    }
+
     render(){
         const metaInfo = getMetricMetaInfo()
+
+        if(true){
+            return(
+                <View>
+                    <MaterialCommunityIcons name="emoticon-happy-outline" size={100} color="black" />
+                    <Text>You already your information for today </Text>
+                    <TextButton onPress={this.reset}>
+                        Reset
+                    </TextButton>
+                </View>
+                
+            )
+        }
+
         return(
             <View>
                 {/**getMetricMetaInfo("run").getIcon()*/}

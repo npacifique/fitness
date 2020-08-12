@@ -2,6 +2,7 @@ import * as React from "react";
 import { FontAwesome5 } from '@expo/vector-icons'; 
 import AddEntry from './components/AddEntry'
 import { View, Text, StyleSheet,  } from "react-native";
+import ReviewList from './playground/Lists'
 
 
 
@@ -18,7 +19,8 @@ export default class App extends React.Component {
   render(){
     return (
       <View>
-        <AddEntry />
+        {/**<AddEntry />*/}
+        <ReviewList />
       </View>
     );
   }
