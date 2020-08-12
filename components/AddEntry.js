@@ -1,11 +1,23 @@
 import React, {Component} from 'react'
-import {Text, View} from 'react-native'
+import {Text, View, TouchableOpacity} from 'react-native'
 import {getMetricMetaInfo, timeToString} from '../utils/helpers'
 import AppSlider from './AppSlider'
 import Stepers from './Stepers'
 import DateHeader from './DateHeader'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import TextButton from './TextButton'
+import {submitEntry, removeEntry} from '../utils/api';
+
+
+function SubmitBtn ({ onPress }) {
+  return (
+    <TouchableOpacity
+      onPress={onPress}>
+        <Text>SUBMIT</Text>
+    </TouchableOpacity>
+  )
+}
+
 
 export default class AddEntry extends Component{
     state ={
@@ -50,15 +62,33 @@ export default class AddEntry extends Component{
         })
     }
 
+    submit =()=>{
+        const key = timeToString()
+        const entry=  this.state
+
+        this.setState(()=>({
+            run : 0, 
+            bike : 0, 
+            swim : 0, 
+            sleep : 0, 
+            eat : 0
+        }))
+
+
+        submitEntry({key, entry})
+    }
+
 
     reset =()=>{
         const key = timeToString()
+
+        removeEntry(key)
     }
 
     render(){
         const metaInfo = getMetricMetaInfo()
 
-        if(true){
+        if(this.props.alreadyLogged){
             return(
                 <View>
                     <MaterialCommunityIcons name="emoticon-happy-outline" size={100} color="black" />
