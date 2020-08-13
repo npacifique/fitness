@@ -4,6 +4,9 @@ import AddEntry from './components/AddEntry'
 import { View, Text, StyleSheet,  } from "react-native";
 import ReviewList from './playground/Lists'
 import Forms from './playground/Forms';
+import reducer from './reducers'
+import {Provider} from 'react-redux'
+import {createStore} from 'redux'
 
 
 
@@ -19,13 +22,12 @@ export default class App extends React.Component {
   
   render(){
     return (
-      <View>
-        <AddEntry />
-        {/**
-          <ReviewList />
-          <Forms />
-      */}
-      </View>
+      <Provider store={createStore(reducer)}>
+        <View>
+          <AddEntry />
+        </View>
+      </Provider>
+      
     );
   }
 }
@@ -33,14 +35,5 @@ export default class App extends React.Component {
 
 
 
-const styles = StyleSheet.create({
-    container : {
-        flex : 1, 
-        marginLeft : 10, 
-        marginRight : 10, 
-        alignItems : 'center', 
-        justifyContent : 'center' 
-    }, 
 
-})
 
