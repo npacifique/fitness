@@ -1,5 +1,6 @@
 import * as React from "react";
 import { FontAwesome5 } from '@expo/vector-icons'; 
+import FlexboxExamples from './playground/Layout';
 import AddEntry from './components/AddEntry'
 import { View, Text, StyleSheet,  } from "react-native";
 import ReviewList from './playground/Lists'
@@ -23,7 +24,7 @@ export default class App extends React.Component {
   render(){
     return (
       <Provider store={createStore(reducer)}>
-        <View>
+        <View style={{flex: 1}}>
           <AddEntry />
         </View>
       </Provider>
