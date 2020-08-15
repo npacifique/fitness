@@ -8,6 +8,8 @@ import Forms from './playground/Forms';
 import reducer from './reducers'
 import {Provider} from 'react-redux'
 import {createStore} from 'redux'
+import History from './components/History'
+import StackNavigationPlay from './playground/StackNavigationPlay'
 
 
 
@@ -25,7 +27,7 @@ export default class App extends React.Component {
     return (
       <Provider store={createStore(reducer)}>
         <View style={{flex: 1}}>
-          <AddEntry />
+          <StackNavigationPlay />
         </View>
       </Provider>
       
